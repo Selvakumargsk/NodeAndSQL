@@ -1,0 +1,23 @@
+<footer class="bg-light text-center text-lg-start">
+  <script>
+    const main = document.querySelector('main');
+    const footer = document.querySelector('footer');
+
+    function setPosition(){
+      const mainHeight = main.clientHeight;
+      if(mainHeight<=400){
+        footer.style.position = 'fixed';
+        footer.style.bottom = '0';
+        footer.style.width = '100%';
+      }else{
+      }
+    }
+    setPosition();
+  </script>
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2023 Copyright:
+      <a class="text-dark" href="http://pcstech.in/">pcstech.in</a>
+    </div>
+    <!-- Copyright -->
+  </footer>

@@ -1,0 +1,21 @@
+<%- include('header')  -%>
+  <main>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Order Details</h2>
+                <% for(let order of orders){ %>
+                    <div>Order Id : <%= order.id  %></div>
+                     <ul>
+                        <% for(let product of order.Products){ %>
+                        <li><%= product.title %></li>
+                        <% } %>
+                     </ul>   
+                    <% } %>
+            </div>
+        </div>
+    </div>
+  </main>
+</body>
+<%- include('footer') %>
+</html>

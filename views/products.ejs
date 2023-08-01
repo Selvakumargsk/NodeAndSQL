@@ -1,0 +1,44 @@
+<%- include('header')  -%>
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+        <h1><%= (admin)?'Admin Product list':'Products List' %></h1>
+
+        <% if (products.length) { %>
+            <div class="row">
+                <%  for(product of products){ %>
+                    <div class="col-sm-3 products my-2">
+        <div class="product">
+           <div class="text-center"><img src="<%= product.image  %> " alt="<%= product.title %>" /></div> 
+            <h4><%= product.title %></h4>
+            <p>Category: <%= product.Category.title %></p>
+            
+            <p><strong>Price $ <%=product.price %></strong></p>
+            <p><%= product.description %></p>
+            <p>Rating: <%= product.rating %>/5</p>
+            <%  if(admin) {%>
+                <div class="d-flex justify-content-center">
+                    <a href="/products/Edit/<%= product.id %>" class="btn btn-primary">Edit</a>
+                    <a href="/products/Delete/<%= product.id %>" class="btn btn-danger mx-2">Delete</a>
+                    </div>
+            <% }else{ %>
+            <div class="d-flex">
+            <a href="/products/productdetails/<%= product.id %>" class="btn btn-primary">View Details</a>
+            <div class="mx-2"><%- include('cartButton'), {product : product}  %></div>
+            </div>
+            <% } %>
+        </div>
+    </div>
+    <%   } %>
+</div>
+       <% }else{ %>
+        <div>No products Available</div>
+       <% } %>
+    </div>
+</div>
+</div>
+    </main>
+</body>
+<%- include('footer') %>
+</html>

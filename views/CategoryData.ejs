@@ -1,0 +1,40 @@
+<%- include('header') -%>
+<main>
+  <div class="container p-3">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="d-flex justify-content-between">
+        <h2>Categories</h2>
+        <a class="btn btn-primary" href="/category/AddCategory">Add Categories</a>
+      </div>
+        <% if (categories.length) { %>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>id</th>
+              <th>title</th>
+              <th>description</th>
+              <th>User</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% categories.forEach((category) =>{ %>
+            <tr>
+              <td><%= category.id %></td>
+              <td><%= category.title %></td>
+              <td><%= category.description %></td> 
+              <td><%= category.User?.name %></td>              
+            </tr>
+            <% }); %>
+          </tbody>
+        </table>
+        <% } else { %>
+        <div>No categories available</div>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</main>
+</body>
+<%- include('footer') %>
+</html>

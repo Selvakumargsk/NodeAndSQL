@@ -1,0 +1,19 @@
+<%- include('header')  -%>
+<main>
+    <div class="container">
+        <div class="row" id="productdetails">
+            <div class="col-sm-6 offset-sm-2 ">
+                <h2><%= product.title  %></h2>
+                <div class="row"><div class="col-md-12"><img style="height: 100%; width: 100%;" src="<%= product.image  %>" alt="<%= product.title %>"/></div></div>
+                <p>Description: <%= product.description  %></p>
+                <p><strong>Price: $<%= product.price  %></strong></p>
+                <p>Rating: <%= product.rating  %>/5</p>
+                <div>
+                    <%- include('cartButton') %>
+                </div>
+         </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

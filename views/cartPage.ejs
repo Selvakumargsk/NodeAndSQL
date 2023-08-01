@@ -1,0 +1,49 @@
+<%- include('header')  -%>
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+        <h1>Cart Details</h1>
+
+        <% if (products.length) { %>
+            <div class="row">
+                <%  for(product of products){ %>
+                    <div class="col-sm-3 products my-2">
+        <div class="product">
+           <div class="text-center"><img src="<%= product.image  %> " alt="<%= product.title %>" /></div> 
+            <h4><%= product.title %></h4>
+            <p><strong>Price $ <%=product.price %></strong></p>
+            <p><%= product.description %></p>
+            <p>Rating: <%= product.rating %>/5</p>
+            <div class="d-flex flex-row justify-content-between p-2">
+             <button class="btn btn-danger">-</button>
+             <p>Quantity: <%= product.cartItem.quantity %></p>
+             <form action="/cart" method="post">
+                <input type="hidden" value="<%= product.id %>" name="productId" />
+                <button class="btn btn-success">+</button>
+             </form>
+            </div>
+            <div class="d-flex flex-row justify-content-center">
+            <form action="/deleteCart" method="post">
+                <input type="hidden" value="<%= product.id %>" name="productId" />
+                <button class="btn btn-danger">Delete form Cart</button>
+             </form></div>
+        </div>
+    </div>
+    <%   } %>
+    <h2 class="text-center">TotalPrice: <%= totalPrice %></h2>
+<form action="/order" class="text-center my-3" method="post">
+    <button type="submit" class="btn btn-primary">Order Now!</button>
+</form>
+</div>
+
+       <% }else{ %>
+        <div>No products Available in Cart</div>
+       <% } %>
+    </div>
+</div>
+</div>
+    </main>
+</body>
+<%- include('footer') %>
+</html>

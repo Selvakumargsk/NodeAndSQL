@@ -1,0 +1,22 @@
+<%- include('header') %>
+<main>
+<form class="w-25 m-auto my-4" action="/login" method="post">    
+    <div class="d-flex flex-column">
+    <label for="email">Enter your email</label>
+    <input class="form-control" type="text" name="email" />
+    </div>
+    <div class="d-flex flex-column">
+    <label for="password">Enter your password</label>
+    <input class="form-control" type="text" name="password" />
+    </div>
+    <button type="submit" class="btn btn-primary m-3">Login</button>
+    <% if(user=="user"){ %>
+    <a href="/register" class="btn btn-warning m-3">Register</a>
+        <% }else{ %>
+            hgdgdg
+            <% } %>
+</form>
+</main>
+</body>
+<%- include('footer') %>
+</html>

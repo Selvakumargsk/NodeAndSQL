@@ -1,0 +1,20 @@
+<%- include('header') -%>
+    <main>
+      <div class="container bg-primary p-3">
+        <div class="row">
+          <div class="col-md-12">
+            <form method="post" action="/category/postAddCategory">
+                <label for="title"> title</label>
+                <input type="text" name="title" />
+                <label for="title"> description</label>
+                <input type="text" name="description" />
+                <button type="submit" class="btn btn-success">Add Category</button>
+            </form>
+            
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+  <%- include('footer') %>
+</html>

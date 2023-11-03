@@ -4,7 +4,7 @@ const mysql = require('mysql2/promise');    //diff of requiring mysql2 and mysql
 // const db = mysql.createPool({         //using createConnection done a connection everytime where using createPool, reusing the existing connection
 //   host : 'localhost' , 
 //   user : 'root' ,
-//   password : 'root123' ,
+//   password : 'root' ,
 //   database : 'node_ecommerce_app'
 // });
 
@@ -14,8 +14,12 @@ const mysql = require('mysql2/promise');    //diff of requiring mysql2 and mysql
 
 const { Sequelize } = require('sequelize');
 
-const sequelize = new Sequelize('node_ecommerce_app' , 'root' , 'root123' , {
+const sequelize = new Sequelize('node_ecommerce_app' , 'root' , 'root' , {
   host : 'localhost',
-  dialect : 'mysql'
+  dialect : 'mysql',
+  dialectOptions: {
+    multipleStatements: true, // Allows running multiple SQL statements
+    createDatabase: true, // Create the database if it doesn't exist
+  },
 })  
 module.exports = sequelize;
